@@ -29,7 +29,11 @@ jobs:
         with:
           path: ./
 
-      - name: Build depend helm charts
+      - name: Update dependency helm charts
+        run: |
+          helm dependency update
+
+      - name: Build dependency helm charts
         run: |
           helm dependency build
 
