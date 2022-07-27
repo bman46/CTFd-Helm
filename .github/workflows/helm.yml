@@ -13,9 +13,6 @@ jobs:
     name: publish gcr
     runs-on: ubuntu-latest
     environment: prod
-    outputs:
-      gcr_version: ${{ needs.version.steps.chart.outputs.appVersion }}
-      current_version: 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
