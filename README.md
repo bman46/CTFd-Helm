@@ -15,7 +15,7 @@ and persisting CTF data through an included (or optionally external) database an
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm -n ctfd install my-release oci://ghcr.io/bman46/ctfd/
+$ helm -n ctfd install my-release oci://ghcr.io/bman46/ctfd/ctfd
 ```
 
 ## Uninstalling the Chart
