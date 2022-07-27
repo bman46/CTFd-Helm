@@ -1,5 +1,7 @@
 # CTFd Helm Chart
 
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/bman46-ctfd)](https://artifacthub.io/packages/search?repo=bman46-ctfd)
+
 [CTFd](https://github.com/CTFd/CTFd) is a Capture The Flag framework focusing on ease of use and customizability.
 It comes with everything you need to run a CTF and it's easy to customize with plugins and themes.
 
