@@ -1,0 +1,44 @@
+env:
+  HELM_EXPERIMENTAL_OCI: 1 #enable OCI support
+  HELM_VERSION_TO_INSTALL: 3.9.0 # version of HEL to install
+  GCR_IMAGE: ghcr.io/${{ github.repository_owner }}/ctfd
+
+on:
+  push:
+    branches: ['release']
+
+jobs:
+  version:
+    name: publish gcr
+    runs-on: ubuntu-latest
+    environment: prod
+    outputs:
+      gcr_version: ${{ needs.version.steps.chart.outputs.appVersion }}
+      current_version: 
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      
+      - name: Install helm
+        uses: Azure/setup-helm@v3
+        with:
+          # Version of helm
+          version: ${{ env.HELM_VERSION_TO_INSTALL }}
+      
+      - name: Read Helm Chart
+        id: chart
+        uses: jacobtomlinson/gha-read-helm-chart@0.1.3
+        with:
+          path: ./
+
+      - name: Login to gcr using helm
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GCR_IMAGE }} --username ${{ github.repository_owner }} --password-stdin
+
+      - name: Save helm chart to local registry
+        run: |
+          helm chart save ${{ github.workspace }}/ ${{ env.GCR_IMAGE }}:${{ steps.chart.outputs.appVersion }}
+
+      - name: Publish chart to gcr
+        run: |
+          helm chart push ${{ env.GCR_IMAGE }}:${{ steps.chart.outputs.appVersion }}
