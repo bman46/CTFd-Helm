@@ -6,15 +6,15 @@ It comes with everything you need to run a CTF and it's easy to customize with p
 ## Chart Details
 
 This chart will install an instance of CTFd, with the possibility of persisting uploads using a PersistentVolumeClaim,
-and persisting CTF data through an external SQL database and Redis for cache.
+and persisting CTF data through an included (or optionally external) SQL database and Redis for cache.
 
 ## Installing the Chart
 
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm repo add momoperes https://charts.momoperes.ca
-$ helm install --name my-release momoperes/ctfd
+$ helm repo add bman45 
+$ helm install --name my-release bman46/ctfd
 ```
 
 ## Uninstalling the Chart
