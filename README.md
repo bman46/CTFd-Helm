@@ -15,6 +15,7 @@ and persisting CTF data through an included (or optionally external) database an
 To install the chart with the release name `my-release`:
 
 ```bash
+$ export HELM_EXPERIMENTAL_OCI=1
 $ helm -n ctfd install my-release oci://ghcr.io/bman46/ctfd/ctfd
 ```
 
@@ -37,6 +38,7 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
+export HELM_EXPERIMENTAL_OCI=1
 $ helm -n ctfd install my-release oci://ghcr.io/bman46/ctfd/ctfd 
 ```
 > **Tip**: You can use the default [values.yaml](values.yaml)
