@@ -38,3 +38,6 @@ Session.vim
 
 # Ignore Chart.lock
 Chart.lock
+
+# Ignore value overrides:
+override.values.yaml
