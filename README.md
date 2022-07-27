@@ -8,7 +8,7 @@ It comes with everything you need to run a CTF and it's easy to customize with p
 ## Chart Details
 
 This chart will install an instance of CTFd, with the possibility of persisting uploads using a PersistentVolumeClaim,
-and persisting CTF data through an included (or optionally external) SQL database and Redis for cache.
+and persisting CTF data through an included (or optionally external) database and Redis for cache.
 
 ## Installing the Chart
 
