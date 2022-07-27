@@ -33,10 +33,10 @@ jobs:
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GCR_IMAGE }} --username ${{ github.repository_owner }} --password-stdin
 
-      - name: Save helm chart to local registry
+      - name: Package helm chart
         run: |
-          helm chart save ${{ github.workspace }}/ ${{ env.GCR_IMAGE }}:${{ steps.chart.outputs.appVersion }}
+          helm package "${{ github.workspace }}/" --destination "${{ github.workspace }}/"
 
       - name: Publish chart to gcr
         run: |
-          helm chart push ${{ env.GCR_IMAGE }}:${{ steps.chart.outputs.appVersion }}
+          helm push "${{ github.workspace }}/${{ steps.chart.outputs.name }}-${{ steps.chart.outputs.version }}.tgz" oci://${{ env.GCR_IMAGE }}
