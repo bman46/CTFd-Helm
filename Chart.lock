@@ -1,0 +1,9 @@
+dependencies:
+- name: mariadb-galera
+  repository: https://charts.bitnami.com/bitnami
+  version: 7.3.6
+- name: redis
+  repository: https://charts.bitnami.com/bitnami
+  version: 17.0.5
+digest: sha256:2e3e092032b75fdf74ae9b87f7dbc96cda59202a9eb2703709218bc8ec52e753
+generated: "2022-07-24T13:26:18.852009-04:00"
