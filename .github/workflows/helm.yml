@@ -29,6 +29,10 @@ jobs:
         with:
           path: ./
 
+      - name: Build depend helm charts
+        run: |
+          helm dependency build
+
       - name: Login to gcr using helm
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ${{ env.GCR_IMAGE }} --username ${{ github.repository_owner }} --password-stdin
