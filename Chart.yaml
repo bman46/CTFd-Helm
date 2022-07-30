@@ -5,12 +5,12 @@ name: ctfd
 version: 0.2.2
 dependencies:
   - name: mariadb-galera
-    version: 7.3.6
+    version: 7.3.7
     repository: https://charts.bitnami.com/bitnami
     condition: mariadb-galera.enabled
     alias: mariadb
   - name: redis
-    version: 17.0.5
+    version: 17.0.6
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
 home: https://github.com/bman46/CTFd-Helm
