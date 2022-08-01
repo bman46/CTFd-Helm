@@ -46,9 +46,9 @@ mariadb:
 
 externalDB:
   # (required if mariadb-galera is disabled) External SQL Database URI. Example: mysql+pymysql://root:ctfd@db/ctfd
-  DATABASE_URL: "testval"
+  DATABASE_URL: ""
   # (required if redis is disabled) External Redis URI. Example: redis://cache:6379
-  REDIS_URL: "testval"
+  REDIS_URL: ""
 
 env:
   open:
