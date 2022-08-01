@@ -20,14 +20,6 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       initContainers:
-        {{- if .Values.mariadb.enabled }}
-        - name: mysql-wait
-          image: busybox:latest
-          command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z $mysqlServer 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL DB Server has started";']
-          env:
-            - name: mysqlServer
-              value: {{ printf "%s-mariadb" .Release.Name }}
-        {{- end }}
         {{- if .Values.redis.enabled }}
         - name: redis-wait
           image: busybox:latest
@@ -35,6 +27,14 @@ spec:
           env:
             - name: redisServer
               value: {{ printf "%s-redis-master" .Release.Name }}
+        {{- end }}
+        {{- if .Values.mariadb.enabled }}
+        - name: mysql-wait
+          image: busybox:latest
+          command: ['sh', '-c', 'echo -e "Checking for the availability of MySQL Server deployment"; while ! nc -z $mysqlServer 3306; do sleep 1; printf "-"; done; echo -e "  >> MySQL DB Server has started";']
+          env:
+            - name: mysqlServer
+              value: {{ printf "%s-mariadb" .Release.Name }}
         {{- end }}
       containers:
         - name: "{{ .Chart.Name }}"
