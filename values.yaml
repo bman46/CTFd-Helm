@@ -24,19 +24,15 @@ mariadb:
   # Enable mariadb server provided by helm:
   enabled: True
   # Login credentials:
-  rootUser:
-    user: root
+  auth:
+    rootPassword: "ChangeMe!123"
+    database: ctfd
+    username: "ctfd"
     password: "ChangeMe!123"
-    forcePassword: false
-  db:
-    user: "ctfd"
-    password: "ChangeMe!123"
-    name: "ctfd"
-  galera:
-    name: ctfd
-    mariabackup: 
-      user: "mariabackup"
-      password: "ChangeMe!123"
+
+    replicationUser: "replicate"
+    replicationPassword: "ChangeMe!123"
+
   persistence:
     enabled: true
     storageClass: ""
@@ -88,17 +84,17 @@ service:
   
 probes:
   liveness:
-    initialDelaySeconds: 15
-    periodSeconds: 10
-    timeoutSeconds: 1
+    initialDelaySeconds: 25
+    periodSeconds: 5
+    timeoutSeconds: 2
     successThreshold: 1
-    failureThreshold: 3
+    failureThreshold: 5
   readiness:
-    initialDelaySeconds: 15
-    periodSeconds: 10
-    timeoutSeconds: 1
+    initialDelaySeconds: 20
+    periodSeconds: 5
+    timeoutSeconds: 2
     successThreshold: 1
-    failureThreshold: 3
+    failureThreshold: 5
 
 # CTFd ingress:
 ingress:
