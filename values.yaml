@@ -9,6 +9,13 @@ image:
   tag: 3.5.0
   pullPolicy: IfNotPresent
 
+# Set K8s securityContext for the CTFd deployment:
+security:
+  fsGroup: 1001
+  runAsNonRoot: true
+  runAsUser: 1001
+  
+
 # Bitnami helm redis deployment
 # See bitnami redis values.yaml for more details
 redis:
