@@ -19,6 +19,14 @@ spec:
         app.kubernetes.io/name: {{ include "ctfd.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      {{- if not (empty .Values.security) }}
+      securityContext:
+      {{- range $name, $value := .Values.security }}
+        {{- if not (empty $value) }}
+        {{ $name }}: {{ $value }}
+        {{- end }}
+      {{- end }}
+      {{- end }}
       initContainers:
         {{- if .Values.redis.enabled }}
         - name: redis-wait
