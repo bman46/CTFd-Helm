@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: 3.5.0
 description: A Helm chart for CTFd
 name: ctfd
-version: 0.4.0
+version: 0.4.1
 dependencies:
   - name: mariadb
     version: 11.3.3
