@@ -14,7 +14,6 @@ security:
   fsGroup: 1001
   runAsNonRoot: true
   runAsUser: 1001
-  
 
 # Bitnami helm redis deployment
 # See bitnami redis values.yaml for more details
