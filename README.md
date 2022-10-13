@@ -18,6 +18,7 @@ To install the chart with the release name `my-release`:
 $ export HELM_EXPERIMENTAL_OCI=1
 $ helm -n ctfd install my-release oci://ghcr.io/bman46/ctfd/ctfd
 ```
+If you get an authentication required error, you may need to specify the version of the chart using the `--version` flag. See [issue #4](https://github.com/bman46/CTFd-Helm/issues/4) for more information.
 
 ## Uninstalling the Chart
 
