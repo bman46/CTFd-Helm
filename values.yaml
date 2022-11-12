@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: ctfd/ctfd
-  tag: 3.5.0
+  tag: # defaults to chart version. Optionally, override here
   pullPolicy: IfNotPresent
 
 # Set K8s securityContext for the CTFd deployment:
