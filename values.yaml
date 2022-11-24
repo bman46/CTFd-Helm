@@ -139,7 +139,7 @@ metrics:
   image:
     registry: docker.io
     repository: bitnami/mysqld-exporter
-    tag: 0.12.1-debian-10-r27
+    tag: 0.14.0-debian-10-r27
     pullPolicy: IfNotPresent
   resources: {}
   annotations:
