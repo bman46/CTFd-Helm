@@ -5,11 +5,11 @@ name: ctfd
 version: 0.4.3
 dependencies:
   - name: mariadb
-    version: 11.3.5
+    version: 11.4.2
     repository: https://charts.bitnami.com/bitnami
     condition: mariadb.enabled
   - name: redis
-    version: 17.3.9
+    version: 17.3.16
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
 home: https://github.com/bman46/CTFd-Helm
