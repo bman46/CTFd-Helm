@@ -114,12 +114,12 @@ spec:
           {{- end }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /healthcheck
               port: 8000
 {{ toYaml .Values.probes.liveness | indent 12 }}
           readinessProbe:
             httpGet:
-              path: /
+              path: /healthcheck
               port: 8000
 {{ toYaml .Values.probes.readiness | indent 12 }}
           resources:
