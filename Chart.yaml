@@ -2,14 +2,14 @@ apiVersion: v2
 appVersion: 3.5.1
 description: A Helm chart for CTFd
 name: ctfd
-version: 0.5.1
+version: 0.5.2
 dependencies:
   - name: mariadb
-    version: 11.4.2
+    version: 11.5.3
     repository: https://charts.bitnami.com/bitnami
     condition: mariadb.enabled
   - name: redis
-    version: 17.3.16
+    version: 17.8.5
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
 home: https://github.com/bman46/CTFd-Helm
