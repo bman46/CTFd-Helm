@@ -42,4 +42,5 @@ Alternatively, a YAML file that specifies the values for the parameters can be p
 $ export HELM_EXPERIMENTAL_OCI=1
 $ helm -n ctfd install my-release oci://ghcr.io/bman46/ctfd/ctfd 
 ```
-> **Tip**: You can use the default [values.yaml](values.yaml)
+> **Note** <br>
+> You can override the default [values.yaml](values.yaml) file using the `--values=path/to/overrides/file` flag.
