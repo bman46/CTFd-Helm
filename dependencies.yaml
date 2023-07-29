@@ -1,0 +1,17 @@
+version: 1
+
+dependencies:
+  - name: "mariadb"
+    source:
+      file: Chart.yaml
+      path: .dependencies[0].version
+    repository:
+      type: artifacthub
+      name: bitnami/mariadb
+  - name: "redis"
+    source:
+      file: Chart.yaml
+      path: .dependencies[1].version
+    repository:
+      type: artifacthub
+      name: bitnami/redis
