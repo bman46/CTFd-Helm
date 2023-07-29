@@ -1,0 +1,34 @@
+name: helm-dependencies
+
+on:
+  # enable manual trigger
+  workflow_dispatch:
+  schedule:
+    # every 12 hours
+    - cron: '0 8 * * 1,4'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/helm-dependencies.yml'
+      - 'dependencies.yaml'
+
+jobs:
+  helm-dependencies:
+    name: Helm Dependencies
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Helm Dependencies
+        uses: hckops/actions/helm-dependencies-action@v0
+        with:
+          config-path: dependencies.yaml
+          user-email: "helmbot@mcshane.systems"
+          user-name: "helmbot"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
