@@ -36,6 +36,10 @@ Session.vim
 
 .history
 
+# Ignore locks
+requirements.lock
+Chart.lock
+
 # Ignore value overrides:
 override.values.yaml
 override.*.values.yaml
