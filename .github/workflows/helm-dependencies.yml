@@ -29,7 +29,7 @@ jobs:
         uses: hckops/actions/helm-dependencies-action@v0.10.6
         with:
           config-path: dependencies.yaml
-          user-email: "${{ GITHUB_ACTOR }}@users.noreply.github.com"
-          user-name: "${{ GITHUB_ACTOR }}"
+          user-email: "github-actions@users.noreply.github.com"
+          user-name: "github-actions"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
