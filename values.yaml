@@ -67,6 +67,13 @@ env:
     DATABASE_URL:
     REDIS_URL:
 
+config:
+  enabled: false
+  settings: |
+    [extra]
+    # Set needed config here
+
+
 # For uploads to the CTFd server (images and other content)
 # Not for DB
 persistence:
