@@ -114,7 +114,7 @@ spec:
           {{- end }}
           {{- if .Values.config.enabled }}
           - name: config-volume
-            mountPath: /opt/CTFd/CTFd/
+            mountPath: /opt/CTFd/CTFd
             subPath: config.ini
           {{- end }}
           livenessProbe:
