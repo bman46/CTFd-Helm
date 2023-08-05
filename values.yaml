@@ -70,6 +70,8 @@ env:
 config:
   enabled: false
   settings: |
+    [server]
+    SECRET_KEY =
     [extra]
     # Set needed config here
 
