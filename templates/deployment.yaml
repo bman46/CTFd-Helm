@@ -112,6 +112,11 @@ spec:
           - mountPath: /var/uploads
             name: uploads
           {{- end }}
+          {{- if .Values.config.enabled }}
+          - name: config-volume
+            mountPath: /opt/CTFd/CTFd/config.ini
+            subPath: config.ini
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /healthcheck
@@ -143,4 +148,9 @@ spec:
           claimName: {{ .Values.persistence.uploads.existingClaim | default (include "ctfd.fullname" .) }}
     {{- else }}
         emptyDir: {}
+    {{- end }}
+    {{- if .Values.config.enabled }}
+      - name: config-volume
+        configMap:
+          name: ctfd-config-ini
     {{- end }}
