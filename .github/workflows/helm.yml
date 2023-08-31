@@ -1,6 +1,6 @@
 env:
   HELM_EXPERIMENTAL_OCI: 1 #enable OCI support
-  HELM_VERSION_TO_INSTALL: 3.9.0 # version of HELM to install
+  HELM_VERSION_TO_INSTALL: v3.12.3 # version of HELM to install
   GCR_IMAGE: ghcr.io/${{ github.repository_owner }}/ctfd
 
 on:
