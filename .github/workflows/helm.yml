@@ -1,12 +1,11 @@
 env:
   HELM_EXPERIMENTAL_OCI: 1 #enable OCI support
-  HELM_VERSION_TO_INSTALL: 3.9.0 # version of HEL to install
+  HELM_VERSION_TO_INSTALL: 3.9.0 # version of HELM to install
   GCR_IMAGE: ghcr.io/${{ github.repository_owner }}/ctfd
 
 on:
   release:
     types: [published]
-  workflow_dispatch:
 
 jobs:
   version:
@@ -39,8 +38,8 @@ jobs:
 
       - name: Package helm chart
         run: |
-          helm package "${{ github.workspace }}/" --destination "${{ github.workspace }}/"
+          helm package "${{ github.workspace }}/" --destination "${{ github.workspace }}/" --version "${{ github.event.release.tag_name }}""
 
       - name: Publish chart to gcr
         run: |
-          helm push "${{ github.workspace }}/${{ steps.chart.outputs.name }}-${{ steps.chart.outputs.version }}.tgz" oci://${{ env.GCR_IMAGE }}
+          helm push "${{ github.workspace }}/${{ steps.chart.outputs.name }}-${{ github.event.release.tag_name }}.tgz" oci://${{ env.GCR_IMAGE }}
