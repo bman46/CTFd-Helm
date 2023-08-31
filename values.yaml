@@ -15,6 +15,15 @@ security:
   runAsNonRoot: true
   runAsUser: 1001
 
+serviceAccount:
+  create: true
+  name:
+  annotations: {}
+  autoMount: false
+
+extraVolumeMounts: []
+extraVolumes: []
+
 # Bitnami helm redis deployment
 # See bitnami redis values.yaml for more details
 redis:
@@ -24,7 +33,7 @@ redis:
     enabled: true
     password: "ChangeMe!123"
   # Redis® architecture. Allowed values: standalone or replication
-  architecture: standalone 
+  architecture: standalone
 
 mariadb:
   # Enable mariadb server provided by helm:
@@ -59,7 +68,7 @@ env:
     # Amount of CTFd workers
     WORKERS: 5
     # If behing ingress proxy or nginx:
-    REVERSE_PROXY: True 
+    REVERSE_PROXY: True
   secret:
   existingSecret:
   # Stores Environment Variable to secret key name mappings
@@ -82,7 +91,7 @@ persistence:
   uploads:
     enabled: true
     #ReadWriteMany may be desired here if using multiple CTFd pods
-    accessMode: ReadWriteOnce 
+    accessMode: ReadWriteOnce
     size: 10Gi
     labels: {}
     # name: value
@@ -96,7 +105,7 @@ service:
   #if service.type = loadbalancer
   # loadBalancerSourceRanges: []
   # loadBalancerIP: ""
-  
+
 probes:
   liveness:
     initialDelaySeconds: 25

@@ -52,3 +52,15 @@ Create redis DB vars
 {{- .values.externalDB.REDIS_URL -}}
 {{- end -}}
 {{- end -}}
+
+
+{{/*
+Create the name of the service account
+*/}}
+{{- define "ctfd.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "ctfd.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
