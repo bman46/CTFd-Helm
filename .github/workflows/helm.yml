@@ -38,7 +38,7 @@ jobs:
 
       - name: Package helm chart
         run: |
-          helm package "${{ github.workspace }}/" --destination "${{ github.workspace }}/" --version "${{ github.event.release.tag_name }}""
+          helm package "${{ github.workspace }}/" --destination "${{ github.workspace }}/" --version "${{ github.event.release.tag_name }}"
 
       - name: Publish chart to gcr
         run: |
