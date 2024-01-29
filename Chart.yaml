@@ -9,7 +9,7 @@ dependencies:
     repository: https://charts.bitnami.com/bitnami
     condition: mariadb.enabled
   - name: redis
-    version: 18.8.0
+    version: 18.9.0
     repository: https://charts.bitnami.com/bitnami
     condition: redis.enabled
 home: https://github.com/bman46/CTFd-Helm
