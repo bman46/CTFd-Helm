@@ -1,6 +1,6 @@
 apiVersion: v2
 version: 0.6.3
-appVersion: 3.6.1
+appVersion: 3.7.0
 description: A Helm chart for CTFd
 name: ctfd
 dependencies:
