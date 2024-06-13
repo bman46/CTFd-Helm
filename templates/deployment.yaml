@@ -27,6 +27,8 @@ spec:
         {{- end }}
       {{- end }}
       {{- end }}
+      serviceAccountName: {{ include "ctfd.serviceAccountName" . }}
+      automountServiceAccountToken: {{ .Values.serviceAccount.autoMount }}
       initContainers:
         {{- if .Values.redis.enabled }}
         - name: redis-wait
@@ -117,6 +119,9 @@ spec:
             mountPath: /opt/CTFd/CTFd/config.ini
             subPath: config.ini
           {{- end }}
+          {{- if .Values.extraVolumeMounts }}
+{{ toYaml .Values.extraVolumeMounts | indent 10 }}
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /healthcheck
@@ -153,4 +158,7 @@ spec:
       - name: config-volume
         configMap:
           name: ctfd-config-ini
+    {{- end }}
+    {{- if .Values.extraVolumes }}
+{{ toYaml .Values.extraVolumes | indent 6 }}
     {{- end }}
