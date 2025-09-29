@@ -34,7 +34,7 @@ Create database vars
 {{- if .Values.mariadb.enabled -}}
 {{- printf "mysql+pymysql://%s:%s@%s-mariadb.%s/%s" .Values.mariadb.auth.username .Values.mariadb.auth.password .Release.Name .Release.Namespace .Values.mariadb.auth.database -}}
 {{- else -}}
-{{- .values.externalDB.DATABASE_URL -}}
+{{- .Values.externalDB.DATABASE_URL -}}
 {{- end -}}
 {{- end -}}
 
@@ -44,11 +44,11 @@ Create redis DB vars
 {{- define "ctfd.REDIS_URL" -}}
 {{- if .Values.redis.enabled -}}
 {{- if .Values.redis.auth.enabled -}}
-{{- printf "redis://:%s@%s-redis-master.%s" .Values.redis.auth.password .Release.Name .Release.Namespace -}}
+{{- printf "redis://:%s@%s-redis.%s" .Values.redis.auth.password .Release.Name .Release.Namespace -}}
 {{- else -}}
-{{- printf "redis://%s-redis-master.%s" .Release.Name .Release.Namespace -}}
+{{- printf "redis://%s-redis.%s" .Release.Name .Release.Namespace -}}
 {{- end -}}
 {{- else -}}
-{{- .values.externalDB.REDIS_URL -}}
+{{- .Values.externalDB.REDIS_URL -}}
 {{- end -}}
 {{- end -}}

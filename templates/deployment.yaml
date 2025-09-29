@@ -34,7 +34,7 @@ spec:
           command: ['sh', '-c', 'echo -e "Checking for the availability of Redis Server deployment"; while ! nc -z $redisServer 6379; do sleep 1; printf "-"; done; echo -e "  >> Redis Server has started";']
           env:
             - name: redisServer
-              value: {{ printf "%s-redis-master" .Release.Name }}
+              value: {{ printf "%s-redis" .Release.Name }}
         {{- end }}
         {{- if .Values.mariadb.enabled }}
         - name: mysql-wait
