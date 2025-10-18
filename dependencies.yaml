@@ -1,14 +1,14 @@
 version: 1
 
 dependencies:
-  - name: "mariadb"
+  - name: "cloudpirates-mariadb"
     source:
       file: Chart.yaml
       path: .dependencies[0].version
     repository:
       type: artifacthub
       name: cloudpirates-mariadb/mariadb
-  - name: "redis"
+  - name: "cloudpirates-redis"
     source:
       file: Chart.yaml
       path: .dependencies[1].version
