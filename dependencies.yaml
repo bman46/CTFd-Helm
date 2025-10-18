@@ -7,11 +7,11 @@ dependencies:
       path: .dependencies[0].version
     repository:
       type: artifacthub
-      name: bitnami/mariadb
+      name: cloudpirates-mariadb/mariadb
   - name: "redis"
     source:
       file: Chart.yaml
       path: .dependencies[1].version
     repository:
       type: artifacthub
-      name: bitnami/redis
+      name: cloudpirates-redis/redis
