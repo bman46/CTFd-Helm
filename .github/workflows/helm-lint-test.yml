@@ -27,10 +27,22 @@ jobs:
       - name: Run chart-testing (list-changed)
         id: list-changed
         run: |
-          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
-          if [[ -n "$changed" ]]; then
+          set -euo pipefail
+          default_branch='${{ github.event.repository.default_branch }}'
+          git fetch origin "$default_branch" --depth=1
+
+          # Check if ct reports changed charts
+          changed_charts="$(ct list-changed --target-branch "$default_branch" || true)"
+
+          # Check if Chart.yaml changed
+          chart_yaml_changed="$(git diff --name-only "origin/$default_branch"...HEAD | grep -E '(^|/)Chart\.yaml$' || true)"
+
+          if [[ -n "$changed_charts" || -n "$chart_yaml_changed" ]]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
+
 
       - name: Run chart-testing (lint)
         if: steps.list-changed.outputs.changed == 'true'
