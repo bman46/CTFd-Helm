@@ -5,7 +5,7 @@ description: A Helm chart for CTFd
 name: ctfd
 dependencies:
   - name: mariadb
-    version: 0.5.1
+    version: 0.6.0
     repository: oci://registry-1.docker.io/cloudpirates
     condition: mariadb.enabled
   - name: redis
