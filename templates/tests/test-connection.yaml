@@ -12,7 +12,8 @@ metadata:
 spec:
   containers:
     - name: wget
-      image: busybox
+      image: "{{ .Values.initContainer.image.repository }}:{{ .Values.initContainer.image.tag }}"
+      imagePullPolicy: {{ .Values.initContainer.image.pullPolicy }}
       command: ['wget']
       args:  ['{{ include "ctfd.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never

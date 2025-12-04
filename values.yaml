@@ -9,6 +9,12 @@ image:
   tag: "" # Leave empty to use chart default, or specify version like "3.8.0"
   pullPolicy: IfNotPresent
 
+initContainer:
+  image:
+    repository: busybox
+    tag: latest
+    pullPolicy: IfNotPresent
+
 # Set K8s securityContext for the CTFd deployment:
 security:
   fsGroup: 1001
@@ -61,7 +67,7 @@ env:
     SECRET_KEY: "ChangeMe!123"
     # Amount of CTFd workers
     WORKERS: 5
-    # If behing ingress proxy or nginx:
+    # If behind ingress proxy or nginx:
     REVERSE_PROXY: true 
   secret:
   existingSecret:
