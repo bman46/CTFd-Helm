@@ -9,7 +9,7 @@ dependencies:
     repository: oci://registry-1.docker.io/cloudpirates
     condition: mariadb.enabled
   - name: redis
-    version: 0.16.3
+    version: 0.16.6
     repository: oci://registry-1.docker.io/cloudpirates
     condition: redis.enabled
 home: https://github.com/bman46/CTFd-Helm
